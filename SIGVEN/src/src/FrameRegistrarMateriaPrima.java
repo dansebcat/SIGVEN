@@ -179,7 +179,7 @@ public class FrameRegistrarMateriaPrima extends javax.swing.JInternalFrame {
                 .addComponent(jButton1)
                 .addGap(38, 38, 38)
                 .addComponent(jButton2)
-                .addGap(203, 203, 203))
+                .addGap(218, 218, 218))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
