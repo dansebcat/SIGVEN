@@ -18,9 +18,13 @@ public class Principal extends javax.swing.JFrame {
     FrameRegistrarCliente rc = new FrameRegistrarCliente();
     FrameRegistrarProducto rp = new FrameRegistrarProducto();
     FrameRegistrarMateriaPrima rmp = new FrameRegistrarMateriaPrima();
-    FrameConsultar consultar = new FrameConsultar();
+    FrameConsultarCliente consultar = new FrameConsultarCliente();
     FrameRegistrarVenta regVenta = new FrameRegistrarVenta();
     ConsultarVenta consultarVenta = new ConsultarVenta();
+    FrameGenerarFacturar gf = new FrameGenerarFacturar();
+    FrameConsultarProducto consultarProducto = new FrameConsultarProducto();
+    FrameConsultarMatPrima consultarMatPrima = new FrameConsultarMatPrima();
+    FrameConsultarFactura consultarFactura = new FrameConsultarFactura();
 
     public Principal() {
         initComponents();
@@ -31,6 +35,10 @@ public class Principal extends javax.swing.JFrame {
         ventanaPrincipal.add(consultar);
         ventanaPrincipal.add(regVenta);
         ventanaPrincipal.add(consultarVenta);
+        ventanaPrincipal.add(gf);
+        ventanaPrincipal.add(consultarFactura);
+        ventanaPrincipal.add(consultarMatPrima);
+        ventanaPrincipal.add(consultarProducto);
     }
 
     /**
@@ -48,14 +56,19 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         btnClientes = new javax.swing.JMenu();
         jMenuItemRegistrarCliente = new javax.swing.JMenuItem();
+        btnConsultarClientes = new javax.swing.JMenuItem();
         Productos = new javax.swing.JMenu();
         menuItemRegistrarProducto = new javax.swing.JMenuItem();
+        BtnConsultarProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItemRegistrarMatPrima = new javax.swing.JMenuItem();
+        BtnConsultarMatPrima = new javax.swing.JMenuItem();
         btnConsultarVenta = new javax.swing.JMenu();
         btnRegistrarVenta = new javax.swing.JMenuItem();
         btnConsVenta = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
+        btnGananciaDiaria = new javax.swing.JMenuItem();
+        btnGenerarFactura = new javax.swing.JMenuItem();
+        btnConsultarFactura = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,13 +104,21 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItemRegistrarCliente.setText("Información");
+        jMenuItemRegistrarCliente.setText("Modificar");
         jMenuItemRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemRegistrarClienteActionPerformed(evt);
             }
         });
         btnClientes.add(jMenuItemRegistrarCliente);
+
+        btnConsultarClientes.setText("Consultar");
+        btnConsultarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarClientesActionPerformed(evt);
+            }
+        });
+        btnClientes.add(btnConsultarClientes);
 
         jMenuBar1.add(btnClientes);
 
@@ -109,7 +130,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        menuItemRegistrarProducto.setText("Información");
+        menuItemRegistrarProducto.setText("Modificar");
         menuItemRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRegistrarProductoActionPerformed(evt);
@@ -117,18 +138,34 @@ public class Principal extends javax.swing.JFrame {
         });
         Productos.add(menuItemRegistrarProducto);
 
+        BtnConsultarProductos.setText("Consultar");
+        BtnConsultarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnConsultarProductosActionPerformed(evt);
+            }
+        });
+        Productos.add(BtnConsultarProductos);
+
         jMenuBar1.add(Productos);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food-basket.png"))); // NOI18N
         jMenu2.setText("Materia Prima");
 
-        jMenuItemRegistrarMatPrima.setText("Información");
+        jMenuItemRegistrarMatPrima.setText("Modificar");
         jMenuItemRegistrarMatPrima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemRegistrarMatPrimaActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItemRegistrarMatPrima);
+
+        BtnConsultarMatPrima.setText("Consultar");
+        BtnConsultarMatPrima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnConsultarMatPrimaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(BtnConsultarMatPrima);
 
         jMenuBar1.add(jMenu2);
 
@@ -156,13 +193,29 @@ public class Principal extends javax.swing.JFrame {
         });
         btnConsultarVenta.add(btnConsVenta);
 
-        jMenuItem16.setText("Ganancia Diaria");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+        btnGananciaDiaria.setText("Ganancia Diaria");
+        btnGananciaDiaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
+                btnGananciaDiariaActionPerformed(evt);
             }
         });
-        btnConsultarVenta.add(jMenuItem16);
+        btnConsultarVenta.add(btnGananciaDiaria);
+
+        btnGenerarFactura.setText("Generar Factura");
+        btnGenerarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarFacturaActionPerformed(evt);
+            }
+        });
+        btnConsultarVenta.add(btnGenerarFactura);
+
+        btnConsultarFactura.setText("Consultar Factura");
+        btnConsultarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarFacturaActionPerformed(evt);
+            }
+        });
+        btnConsultarVenta.add(btnConsultarFactura);
 
         jMenuBar1.add(btnConsultarVenta);
 
@@ -210,9 +263,10 @@ public class Principal extends javax.swing.JFrame {
         CentrarVentana(rc);
     }//GEN-LAST:event_btnClientesActionPerformed
 
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+    private void btnGananciaDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGananciaDiariaActionPerformed
+        cerrarVentanas();
         JOptionPane.showMessageDialog(null, "La ganancia diaria es de :  $$$$$ ");
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
+    }//GEN-LAST:event_btnGananciaDiariaActionPerformed
 
     private void btnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVentaActionPerformed
         CentrarVentana(regVenta);
@@ -225,6 +279,26 @@ public class Principal extends javax.swing.JFrame {
     private void btnConsultarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarVentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarVentaActionPerformed
+
+    private void btnGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFacturaActionPerformed
+        CentrarVentana(gf);
+    }//GEN-LAST:event_btnGenerarFacturaActionPerformed
+
+    private void btnConsultarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarClientesActionPerformed
+         CentrarVentana(consultar);
+    }//GEN-LAST:event_btnConsultarClientesActionPerformed
+
+    private void BtnConsultarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultarProductosActionPerformed
+        CentrarVentana(consultarProducto);
+    }//GEN-LAST:event_BtnConsultarProductosActionPerformed
+
+    private void BtnConsultarMatPrimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultarMatPrimaActionPerformed
+        CentrarVentana(consultarMatPrima);
+    }//GEN-LAST:event_BtnConsultarMatPrimaActionPerformed
+
+    private void btnConsultarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarFacturaActionPerformed
+        CentrarVentana(consultarFactura);
+    }//GEN-LAST:event_btnConsultarFacturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +321,11 @@ public class Principal extends javax.swing.JFrame {
         consultar.setVisible(false);
         consultarVenta.setVisible(false);
         regVenta.setVisible(false);
-        
+        gf.setVisible(false);
+        consultarFactura.setVisible(false);
+        consultarMatPrima.setVisible(false);
+        consultarProducto.setVisible(false);
+       
     }
 
     public static void main(String args[]) {
@@ -283,16 +361,21 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BtnConsultarMatPrima;
+    private javax.swing.JMenuItem BtnConsultarProductos;
     private javax.swing.JMenu Productos;
     private javax.swing.JMenu btnClientes;
     private javax.swing.JMenuItem btnConsVenta;
+    private javax.swing.JMenuItem btnConsultarClientes;
+    private javax.swing.JMenuItem btnConsultarFactura;
     private javax.swing.JMenu btnConsultarVenta;
+    private javax.swing.JMenuItem btnGananciaDiaria;
+    private javax.swing.JMenuItem btnGenerarFactura;
     private javax.swing.JMenuItem btnRegistrarVenta;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItemRegistrarCliente;
     private javax.swing.JMenuItem jMenuItemRegistrarMatPrima;
     private javax.swing.JMenuItem menuItemRegistrarProducto;

@@ -47,7 +47,7 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Apellido:");
 
-        jLabel3.setText("CI:");
+        jLabel3.setText("Código (CI):");
 
         jLabel4.setText("Teléfono:");
 
